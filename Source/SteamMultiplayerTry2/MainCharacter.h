@@ -7,7 +7,7 @@
 #include "MainCharacter.generated.h"
 
 UENUM(BlueprintType)
-enum ETeam
+enum class ETeam : uint8
 {
 	TeamA UMETA(DisplayName = "TeamA"),
 	TeamB UMETA(DisplayName = "TeamB")
@@ -22,8 +22,11 @@ class STEAMMULTIPLAYERTRY2_API AMainCharacter : public ASteamMultiplayerTry2Char
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
-	TEnumAsByte<ETeam> Team;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = ApplyTeamSkin)
+	ETeam Team = ETeam::TeamA;
+	
+	UFUNCTION(BlueprintImplementableEvent) 
+	void ApplyTeamSkin(ETeam OldTeam);
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 };
