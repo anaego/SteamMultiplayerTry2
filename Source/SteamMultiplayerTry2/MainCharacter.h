@@ -24,6 +24,9 @@ class STEAMMULTIPLAYERTRY2_API AMainCharacter : public ASteamMultiplayerTry2Char
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = ApplyTeamSkin)
 	ETeam Team = ETeam::TeamA;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
+	bool IsDead = false;
 	
 	UFUNCTION(BlueprintImplementableEvent) 
 	void ApplyTeamSkin(ETeam OldTeam);

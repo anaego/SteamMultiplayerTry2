@@ -8,4 +8,5 @@ void AMainCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AMainCharacter, Team);
+	DOREPLIFETIME(AMainCharacter, IsDead);
 }
