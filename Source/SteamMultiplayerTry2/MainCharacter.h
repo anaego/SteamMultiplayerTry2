@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "SteamMultiplayerTry2Character.h"
+#include "Weapon.h"
 #include "MainCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -30,6 +31,9 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent) 
 	void ApplyTeamSkin(ETeam OldTeam);
+
+	UFUNCTION(BlueprintImplementableEvent) 
+	void PickUpWeapon(AWeapon* Weapon);
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 };
